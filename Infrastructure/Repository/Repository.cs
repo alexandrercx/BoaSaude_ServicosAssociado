@@ -5,7 +5,7 @@ using System;
 namespace Infrastructure.Repository
 {
 
-    public class Repository<TEntity> : RepositoryBase, IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : RepositoryBase, IGenerics<TEntity> where TEntity : class
     {
 
         protected readonly Context.Contexto con;

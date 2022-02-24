@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Infrastructure.Entities
+namespace Domain.Entities
 {
    [Table("Agendamento", Schema ="dbo")]
    public class Agendamento
