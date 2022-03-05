@@ -6,8 +6,8 @@ namespace Domain.Entities
 {
    public enum TipoAtendimento
    {
-      ConsultaPresencial,
-      Telemedicina,
-      Exame
+      ConsultaPresencial = 1,
+      Telemedicina = 2,
+      Exame = 3
    }
 }
