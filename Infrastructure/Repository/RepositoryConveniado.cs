@@ -4,7 +4,7 @@ using Infrastructure.Context;
 
 namespace Infrastructure.Repository
 {
-   public class RepositoryConveniado : RepositoryGenerics<Conveniado>, IConveniado
+   public class RepositoryConveniado : RepositoryGenerics<Conveniado>, IServConveniado
    {
       public RepositoryConveniado(Contexto context)
       {

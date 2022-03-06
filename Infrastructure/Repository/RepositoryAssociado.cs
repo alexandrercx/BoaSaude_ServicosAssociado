@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Infrastructure.Repository
 {
-   public class RepositoryAssociado : RepositoryGenerics<Associado>, IAssociado
+   public class RepositoryAssociado : RepositoryGenerics<Associado>, IServAssociado
    {
       public RepositoryAssociado(Contexto context)
       {

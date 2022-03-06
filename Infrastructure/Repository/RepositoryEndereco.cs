@@ -4,11 +4,11 @@ using Infrastructure.Context;
 
 namespace Infrastructure.Repository
 {
-   public class RepositoryEndereco : RepositoryGenerics<Endereco>, IEndereco
-   {
-      public RepositoryEndereco(Contexto context)
-      {
-         base.SetContext(context);
-      }
-   }
+    public class RepositoryEndereco : RepositoryGenerics<Endereco>, IServEndereco
+    {
+        public RepositoryEndereco(Contexto context)
+        {
+            SetContext(context);
+        }
+    }
 }

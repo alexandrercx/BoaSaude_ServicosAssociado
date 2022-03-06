@@ -2,7 +2,7 @@
 
 namespace Domain.Interfaces
 {
-   public interface IConveniado : IGenerics<Conveniado>
+   public interface IServEndereco : IServGenerics<Endereco>
    {
    }
 }

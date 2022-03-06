@@ -2,7 +2,7 @@
 
 namespace Domain.Interfaces
 {
-   public interface IAgendamento : IGenerics<Agendamento>
+   public interface IServAssociado : IServGenerics<Associado>
    {
    }
 }

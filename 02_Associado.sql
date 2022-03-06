@@ -1,4 +1,4 @@
-﻿USE [ServicoAssociado]
+﻿USE [BD_ServicoAssociado]
 GO
 
 SET ANSI_NULLS ON
@@ -19,4 +19,8 @@ CREATE TABLE [dbo].[Associado](
    [Seql_Associado] ASC
 )WITH (PAD_INDEX = ON, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+
+IF NOT EXISTS (SELECT TOP 1 1 FROM sys.objects WHERE name = 'DF_Associado_Inst_Cadastro' AND parent_object_id = object_id ('dbo.Associado') AND type = 'D')
+ALTER TABLE [dbo].[Associado] ADD  CONSTRAINT [DF_Associado_Inst_Cadastro]  DEFAULT (getdate()) FOR [Inst_Cadastro]
 GO

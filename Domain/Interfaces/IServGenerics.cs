@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public interface IGenerics<TEntity> where TEntity : class
+    public interface IServGenerics<TEntity> where TEntity : class
     {
       Task Add(TEntity value);
 

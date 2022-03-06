@@ -1,4 +1,4 @@
-﻿USE [ServicoAssociado]
+﻿USE [BD_ServicoAssociado]
 GO
 
 SET ANSI_NULLS ON

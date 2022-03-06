@@ -11,7 +11,7 @@ namespace Domain.Entities
       public int Seql_Associado { get; set; }
       public long Num_Documento { get; set; }
       public string Nom_Associado { get; set; }
-      public bool Ind_Ativo { get; set; }
+      public string Ind_Ativo { get; set; }
       public DateTime Inst_Cadastro { get; set; }
       public DateTime Inst_Atualização { get; set; }
    }
