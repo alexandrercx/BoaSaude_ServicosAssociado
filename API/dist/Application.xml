@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Application</name>
+    </assembly>
+    <members>
+        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.CodTipoAtendimento">
+            <summary>
+            Tipo de atendimento
+            </summary>
+        </member>
+        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.SeqlAssociado">
+            <summary>
+            Identificador do associado
+            </summary>
+        </member>
+        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.SeqlConveniado">
+            <summary>
+            Identificador do conveniado que realizará o atendimento
+            </summary>
+        </member>
+        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.SeqlEndereco">
+            <summary>
+            Identificador do endereço onde será feito o atendimento
+            </summary>
+        </member>
+        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.InstAtendimento">
+            <summary>
+            Data que será realizado o atendimento
+            </summary>
+        </member>
+    </members>
+</doc>

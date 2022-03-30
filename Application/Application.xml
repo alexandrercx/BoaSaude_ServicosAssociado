@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Application</name>
+        <name>BoaSaude.Tcc.Application</name>
     </assembly>
     <members>
         <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.CodTipoAtendimento">

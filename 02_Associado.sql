@@ -24,3 +24,55 @@ GO
 IF NOT EXISTS (SELECT TOP 1 1 FROM sys.objects WHERE name = 'DF_Associado_Inst_Cadastro' AND parent_object_id = object_id ('dbo.Associado') AND type = 'D')
 ALTER TABLE [dbo].[Associado] ADD  CONSTRAINT [DF_Associado_Inst_Cadastro]  DEFAULT (getdate()) FOR [Inst_Cadastro]
 GO
+
+
+-- USE [BD_ServicoAssociado]
+-- GO
+
+-- INSERT INTO [dbo].[Associado]
+--            ([Seql_Associado]
+--            ,[Num_Documento]
+--            ,[Nom_Associado]
+--            ,[Ind_Ativo]
+--            ,[Inst_Cadastro]
+--            ,[Inst_Atualização])
+--      VALUES
+--            (1
+--            ,12345678909
+--            ,'Enzo Ferreira'
+--            ,'S'
+--            ,getdate()
+--            ,getdate())
+-- GO
+
+-- INSERT INTO [dbo].[Associado]
+--            ([Seql_Associado]
+--            ,[Num_Documento]
+--            ,[Nom_Associado]
+--            ,[Ind_Ativo]
+--            ,[Inst_Cadastro]
+--            ,[Inst_Atualização])
+--      VALUES
+--            (2
+--            ,09876543211
+--            ,'Igor Ferreira'
+--            ,'S'
+--            ,getdate()
+--            ,getdate())
+-- GO
+
+-- INSERT INTO [dbo].[Associado]
+--            ([Seql_Associado]
+--            ,[Num_Documento]
+--            ,[Nom_Associado]
+--            ,[Ind_Ativo]
+--            ,[Inst_Cadastro]
+--            ,[Inst_Atualização])
+--      VALUES
+--            (3
+--            ,76859403212
+--            ,'Jhon Ferreira'
+--            ,'N'
+--            ,getdate()
+--            ,getdate())
+-- GO

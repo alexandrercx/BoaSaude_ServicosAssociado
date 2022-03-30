@@ -4,44 +4,39 @@
         <name>API</name>
     </assembly>
     <members>
-        <member name="M:API.Controller.AgendamentoController.List(System.String,System.Int32)">
+        <member name="M:API.Controller.AgendamentoController.List(System.Int32)">
             <summary>
             Consultar agendamento(s) do associado: Este endpoint deve ser utilizado para  consultar um agendamento específico 
             utilizando o identificador do associado como filtro.
             </summary>
-            <param name="token">Chave para autenticação</param>
             <param name="idAssociado">Identificador do associado</param>
             <returns></returns>
         </member>
-        <member name="M:API.Controller.AgendamentoController.Get(System.String,System.Int32)">
+        <member name="M:API.Controller.AgendamentoController.Get(System.Int32)">
             <summary>
             Consultar agendamento: Este endpoint deve ser utilizado para  consultar um agendamento específico 
             utilizando o identificador do agendamento como filtro.
             </summary>
-            <param name="token">Chave para autenticação</param>
             <param name="id">Identificador do agendamento</param>
             <returns></returns>
         </member>
-        <member name="M:API.Controller.AgendamentoController.Post(System.String,Application.ViewModel.Request.RequestAgendamentoViewModel)">
+        <member name="M:API.Controller.AgendamentoController.Post(Application.ViewModel.Request.RequestAgendamentoViewModel)">
             <summary>
             Cadastrar agendamento: Este endpoint deve ser utilizado para registrar agendamentos para os associados.
             </summary>
-            <param name="token">Chave para autenticação</param>
             <param name="value">Dados do agendamento</param>
         </member>
-        <member name="M:API.Controller.AgendamentoController.Put(System.String,System.Int32,Application.ViewModel.Request.RequestAgendamentoViewModel)">
+        <member name="M:API.Controller.AgendamentoController.Put(System.Int32,Application.ViewModel.Request.RequestAgendamentoViewModel)">
             <summary>
             Alterar agendamento: Este endpoint deve ser utilizado para altear um agendamento.
             </summary>
-            <param name="token">Chave para autenticação</param>
             <param name="id">Identificador do agendamento</param>
             <param name="value">Dados do agendamento</param>
         </member>
-        <member name="M:API.Controller.AgendamentoController.Delete(System.String,System.Int32)">
+        <member name="M:API.Controller.AgendamentoController.Delete(System.Int32)">
             <summary>
             Cancelar agendamento: Este endpoint deve ser utilizado para cancelar um agendamento.
             </summary>
-            <param name="token">Chave para autenticação</param>
             <param name="id">Identificador do agendamento</param>
         </member>
     </members>

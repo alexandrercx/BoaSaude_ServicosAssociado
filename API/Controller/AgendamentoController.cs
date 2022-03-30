@@ -34,14 +34,13 @@ namespace API.Controller
         /// Consultar agendamento(s) do associado: Este endpoint deve ser utilizado para  consultar um agendamento específico 
         /// utilizando o identificador do associado como filtro.
         /// </summary>
-        /// <param name="token">Chave para autenticação</param>
         /// <param name="idAssociado">Identificador do associado</param>
         /// <returns></returns>
         [HttpGet]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(List<ResponseAgendamentoViewModel>))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(string))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(string))]
-        public List<ResponseAgendamentoViewModel> List([Required][FromHeader] string token, [Required][FromQuery] int idAssociado)
+        public List<ResponseAgendamentoViewModel> List([Required][FromQuery] int idAssociado)
         {
             return _AgendamentoAppService.List(idAssociado).Result;
         }
@@ -51,14 +50,13 @@ namespace API.Controller
         /// Consultar agendamento: Este endpoint deve ser utilizado para  consultar um agendamento específico 
         /// utilizando o identificador do agendamento como filtro.
         /// </summary>
-        /// <param name="token">Chave para autenticação</param>
         /// <param name="id">Identificador do agendamento</param>
         /// <returns></returns>
         [HttpGet("{id}")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ResponseAgendamentoViewModel))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(string))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(string))]
-        public ResponseAgendamentoViewModel Get([Required][FromHeader] string token, [Required][FromRoute] int id)
+        public ResponseAgendamentoViewModel Get([Required][FromRoute] int id)
         {
             return _AgendamentoAppService.Get(id).Result;
         }
@@ -67,13 +65,12 @@ namespace API.Controller
         /// <summary>
         /// Cadastrar agendamento: Este endpoint deve ser utilizado para registrar agendamentos para os associados.
         /// </summary>
-        /// <param name="token">Chave para autenticação</param>
         /// <param name="value">Dados do agendamento</param>
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ResponseAgendamentoViewModel))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(string))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(string))]
-        public IActionResult Post([Required][FromHeader] string token, [Required][FromBody] RequestAgendamentoViewModel value)
+        public IActionResult Post([Required][FromBody] RequestAgendamentoViewModel value)
         {
             // var result = _AgendamentoAppService.Add(value);
 
@@ -83,9 +80,6 @@ namespace API.Controller
 
             try
             {
-                if (!new AuthorizationAttribute(_Configuration).IsValid(token))
-                    throw new UnauthorizedAccessException("Acesso negado.");
-
                 if (value == null)
                     throw new ArgumentNullException(nameof(value));
 
@@ -126,7 +120,6 @@ namespace API.Controller
         /// <summary>
         /// Alterar agendamento: Este endpoint deve ser utilizado para altear um agendamento.
         /// </summary>
-        /// <param name="token">Chave para autenticação</param>
         /// <param name="id">Identificador do agendamento</param>
         /// <param name="value">Dados do agendamento</param>
         // PUT api/<Agendamento>/5
@@ -134,7 +127,7 @@ namespace API.Controller
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(string))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(string))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(string))]
-        public void Put([Required][FromHeader] string token, [Required][FromRoute] int id, [Required][FromBody] RequestAgendamentoViewModel value)
+        public void Put([Required][FromRoute] int id, [Required][FromBody] RequestAgendamentoViewModel value)
         {
             throw new NotImplementedException();
         }
@@ -143,13 +136,12 @@ namespace API.Controller
         /// <summary>
         /// Cancelar agendamento: Este endpoint deve ser utilizado para cancelar um agendamento.
         /// </summary>
-        /// <param name="token">Chave para autenticação</param>
         /// <param name="id">Identificador do agendamento</param>
         [HttpDelete("{id}")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(string))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(string))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(string))]
-        public void Delete([Required][FromHeader] string token, [Required][FromRoute] int id)
+        public void Delete([Required][FromRoute] int id)
         {
             throw new NotImplementedException();
         }
