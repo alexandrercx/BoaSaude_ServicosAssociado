@@ -14,7 +14,7 @@ namespace Domain.Interfaces
 
       Task Delete(TEntity value);
 
-      Task<TEntity> Get(int Id);
+      Task<TEntity> Get(long Id);
 
       Task<List<TEntity>> List(Expression<Func<TEntity, bool>> expression);
    }

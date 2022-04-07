@@ -6,7 +6,7 @@ namespace Application.ViewModel.Response
 {
     public class ResponseTipoAtendimentoViewModel
     {
-        public int CodTipoAtendimento { get; set; }
-        public string NomTipoAtendimento { get; set; }
+        public long Id { get; set; }
+        public string Nome { get; set; }
     }
 }

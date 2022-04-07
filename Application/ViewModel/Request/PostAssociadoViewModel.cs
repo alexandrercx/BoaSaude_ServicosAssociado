@@ -6,7 +6,7 @@ namespace Application.ViewModel.Request
     {
 
         [JsonProperty("ServicosAssociado_id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
 
         [JsonProperty("nome")]

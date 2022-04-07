@@ -6,12 +6,12 @@ namespace Application.Services
 {
     public class ServicosAssociadoAppService : Base, IServicosAssociadoAppService
     {
-        public int GetCadastroServicosAssociado(int id)
+        public long GetCadastroServicosAssociado(long id)
         {
             throw new NotImplementedException();
         }
 
-        public int PostCadastroServicosAssociado(PostServicosAssociadoViewModel postServicosAssociadoView)
+        public long PostCadastroServicosAssociado(PostServicosAssociadoViewModel postServicosAssociadoView)
         {
             return 0;
         }

@@ -29,24 +29,24 @@ namespace Application.Services
 
             await _Agendamento.Add(request);
 
-            if (request.Seql_Agendamento > 0)
+            if (request.Id > 0)
             {
-                response = await Get(request.Seql_Agendamento);
+                response = await Get(request.Id);
             }
 
             return response;
         }
 
-        public async Task<ResponseAgendamentoViewModel> Get(int id)
+        public async Task<ResponseAgendamentoViewModel> Get(long id)
         {
             var result = await _Agendamento.Get(id);
             var response = _Mapper.Map<ResponseAgendamentoViewModel>(result);
             return response;
         }
 
-        public async Task<List<ResponseAgendamentoViewModel>> List(int idAssociado)
+        public async Task<List<ResponseAgendamentoViewModel>> List(long idAssociado)
         {
-            var result = await _Agendamento.List(a => a.Seql_Associado == idAssociado);
+            var result = await _Agendamento.List(a => a.AssociadoId == idAssociado);
             var response = _Mapper.Map<List<ResponseAgendamentoViewModel>>(result);
             return response;
         }

@@ -4,27 +4,27 @@
         <name>BoaSaude.Tcc.Application</name>
     </assembly>
     <members>
-        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.CodTipoAtendimento">
+        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.TipoAtendimentoId">
             <summary>
             Tipo de atendimento
             </summary>
         </member>
-        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.SeqlAssociado">
+        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.AssociadoId">
             <summary>
             Identificador do associado
             </summary>
         </member>
-        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.SeqlConveniado">
+        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.ConveniadoId">
             <summary>
             Identificador do conveniado que realizará o atendimento
             </summary>
         </member>
-        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.SeqlEndereco">
+        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.EnderecoId">
             <summary>
             Identificador do endereço onde será feito o atendimento
             </summary>
         </member>
-        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.InstAtendimento">
+        <member name="P:Application.ViewModel.Request.RequestAgendamentoViewModel.DataAtendimento">
             <summary>
             Data que será realizado o atendimento
             </summary>

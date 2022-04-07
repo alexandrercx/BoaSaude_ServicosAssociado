@@ -25,14 +25,14 @@ namespace Infrastructure.Repository
             await _Context.SaveChangesAsync();
         }
 
-        public override async Task<Agendamento> Get(int Id)
+        public override async Task<Agendamento> Get(long Id)
         {
             return await _Context.Agendamento
                 .Include(a => a.Endereco)
                 .Include(a => a.Associado)
                 .Include(a => a.Conveniado)
                 .Include(a=>a.TipoAtendimento)
-                .Where(p => p.Seql_Agendamento == Id)
+                .Where(p => p.Id == Id)
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
         }

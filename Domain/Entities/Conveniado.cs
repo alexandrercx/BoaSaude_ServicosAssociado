@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace Domain.Entities
 {
-   [Table("Conveniado", Schema = "dbo")]
+    [Table("Conveniado", Schema = "dbo")]
    public class Conveniado
    {
-      public int Seql_Conveniado { get; set; }
-      public long Num_Documento { get; set; }
-      public string Nom_Conveniado { get; set; }
-      public string Num_DocProfissional { get; set; }
-      public DateTime Inst_Cadastro { get; set; }
-      public DateTime Inst_Atualização { get; set; }
+      public long Id { get; set; }
+      public long Documento { get; set; }
+      public string Nome { get; set; }
+      public string DocProfissional { get; set; }
+      public DateTime DataCadastro { get; set; }
+      public DateTime DataAtualizacao { get; set; }
    }
 }

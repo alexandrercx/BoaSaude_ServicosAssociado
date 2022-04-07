@@ -6,11 +6,11 @@ namespace Application.ViewModel.Response
 {
     public class ResponseConveniadoViewModel
     {
-        public int Id { get; set; }
-        public long NumDocumento { get; set; }
-        public string NomConveniado { get; set; }
-        public string NumDocProfissional { get; set; }
-        public DateTime InstCadastro { get; set; }
-        public DateTime InstAtualização { get; set; }
+        public long Id { get; set; }
+        public long Documento { get; set; }
+        public string Nome { get; set; }
+        public string DocProfissional { get; set; }
+        public DateTime DataCadastro { get; set; }
+        public DateTime DataAtualizacao { get; set; }
     }
 }

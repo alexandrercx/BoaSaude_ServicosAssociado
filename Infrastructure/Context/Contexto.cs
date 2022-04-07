@@ -20,15 +20,15 @@ namespace Infrastructure.Context
 
             //Agendamento
             modelBuilder.Entity<Agendamento>()
-              .HasKey(p => new { p.Seql_Agendamento });
+              .HasKey(p => new { p.Id });
 
             modelBuilder.Entity<Agendamento>()
-               .Property(r => r.Seql_Agendamento)
+               .Property(r => r.Id)
                .ValueGeneratedOnAdd();
 
             //Associado
             modelBuilder.Entity<Associado>()
-               .HasKey(p => new { p.Seql_Associado });
+               .HasKey(p => new { p.Id });
 
             //modelBuilder.Entity<Associado>()
             //   .Property(r => r.Seql_Associado)
@@ -37,11 +37,11 @@ namespace Infrastructure.Context
             modelBuilder.Entity<Agendamento>()
                .HasOne(a => a.Associado)
                .WithMany()
-               .HasForeignKey(p => p.Seql_Associado);
+               .HasForeignKey(p => p.AssociadoId);
 
             //Conveniado
             modelBuilder.Entity<Conveniado>()
-               .HasKey(p => new { p.Seql_Conveniado });
+               .HasKey(p => new { p.Id });
 
             //modelBuilder.Entity<Conveniado>()
             //   .Property(r => r.Seql_Conveniado)
@@ -50,11 +50,11 @@ namespace Infrastructure.Context
             modelBuilder.Entity<Agendamento>()
                .HasOne(a => a.Conveniado)
                .WithMany()
-               .HasForeignKey(p => p.Seql_Conveniado);
+               .HasForeignKey(p => p.ConveniadoId);
 
             //Endereco
             modelBuilder.Entity<Endereco>()
-               .HasKey(p => new { p.Seql_Endereco });
+               .HasKey(p => new { p.Id });
 
             //modelBuilder.Entity<Endereco>()
             //   .Property(r => r.Seql_Endereco)
@@ -63,25 +63,25 @@ namespace Infrastructure.Context
             modelBuilder.Entity<Agendamento>()
                .HasOne(a => a.Endereco)
                .WithMany()
-               .HasForeignKey(p => p.Seql_Endereco);
+               .HasForeignKey(p => p.EnderecoId);
 
             //Defaults
             modelBuilder.Entity<Agendamento>()
-               .Property(a => a.Inst_Agendamento)
+               .Property(a => a.DataAgendamento)
                .HasDefaultValueSql("getdate()");
 
             //TipoAtendimento
             modelBuilder.Entity<TipoAtendimento>()
-               .HasKey(p => new { p.Cod_TipoAtendimento });
+               .HasKey(p => new { p.Id });
 
             modelBuilder.Entity<Agendamento>()
                .HasOne(a => a.TipoAtendimento)
                .WithMany()
-               .HasForeignKey(p => p.Cod_TipoAtendimento);
+               .HasForeignKey(p => p.TipoAtendimentoId);
 
             //Defaults
             modelBuilder.Entity<Agendamento>()
-               .Property(a => a.Inst_Agendamento)
+               .Property(a => a.DataAgendamento)
                .HasDefaultValueSql("getdate()");
 
             //Conversões

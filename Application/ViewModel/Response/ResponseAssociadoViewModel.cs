@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Application.ViewModel.Response
 {
     public class ResponseAssociadoViewModel
     {
-        public int Id { get; set; }
-        public long NumDocumento { get; set; }
-        public string NomAssociado { get; set; }
-        public string IndAtivo { get; set; }
-        public DateTime InstCadastro { get; set; }
-        public DateTime InstAtualizacao { get; set; }
+        public long Id { get; set; }
+        public long Documento { get; set; }
+        public string Nome { get; set; }
+        public string Ativo { get; set; }
+        public DateTime DataCadastro { get; set; }
+        public DateTime DataAtualizacao { get; set; }
     }
 }

@@ -36,7 +36,7 @@ namespace Infrastructure.Repository
             _ContextBase.Set<TEntity>().Remove(entity);
         }
 
-        public virtual async Task<TEntity> Get(int Id)
+        public virtual async Task<TEntity> Get(long Id)
         {
             return await _ContextBase.Set<TEntity>().FindAsync(Id);
         }

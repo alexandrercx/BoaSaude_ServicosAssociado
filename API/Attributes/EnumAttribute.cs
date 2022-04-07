@@ -27,14 +27,14 @@ namespace API.Attributes
         {
             try
             {
-                var myEnumIntValues = from int n in Enum.GetValues(EnumType).Cast<int>() select (int)n;
+                var myEnumIntValues = from long n in Enum.GetValues(EnumType).Cast<long>() select (long)n;
                 var myEnumStringValues = from string n in Enum.GetValues(EnumType).Cast<string>() select (string)n;
                 var myEnumStringNames = from string n in Enum.GetNames(EnumType).Cast<string>() select (string)n;
 
                 if (value != null && (myEnumIntValues.Count() > 0 || myEnumStringValues.Count() > 0 || myEnumStringNames.Count() > 0))
                 {
-                    int valueInt;
-                    if (int.TryParse(value.ToString(), out valueInt))
+                    long valueInt;
+                    if (long.TryParse(value.ToString(), out valueInt))
                     {
                         if (myEnumIntValues?.Count() > 0 && myEnumIntValues.Where(b => b == valueInt)?.Count() == 1)
                             return true;

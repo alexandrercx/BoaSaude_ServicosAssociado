@@ -8,8 +8,8 @@ namespace Application.Interface
     public interface IServicosAssociadoAppService
     {
 
-        int PostCadastroServicosAssociado(PostServicosAssociadoViewModel postServicosAssociadoView);
+        long PostCadastroServicosAssociado(PostServicosAssociadoViewModel postServicosAssociadoView);
 
-        int GetCadastroServicosAssociado(int id);
+        long GetCadastroServicosAssociado(long id);
     }
 }

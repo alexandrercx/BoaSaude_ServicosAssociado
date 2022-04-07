@@ -6,8 +6,4 @@
     <Version>1.0.1</Version>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\Response\" />
-  </ItemGroup>
-
 </Project>

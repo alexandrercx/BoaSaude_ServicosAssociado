@@ -20,6 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Application.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

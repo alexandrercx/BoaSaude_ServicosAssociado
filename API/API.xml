@@ -4,7 +4,7 @@
         <name>API</name>
     </assembly>
     <members>
-        <member name="M:API.Controller.AgendamentoController.List(System.Int32)">
+        <member name="M:API.Controller.AgendamentoController.List(System.Int64)">
             <summary>
             Consultar agendamento(s) do associado: Este endpoint deve ser utilizado para  consultar um agendamento específico 
             utilizando o identificador do associado como filtro.
@@ -12,7 +12,7 @@
             <param name="idAssociado">Identificador do associado</param>
             <returns></returns>
         </member>
-        <member name="M:API.Controller.AgendamentoController.Get(System.Int32)">
+        <member name="M:API.Controller.AgendamentoController.Get(System.Int64)">
             <summary>
             Consultar agendamento: Este endpoint deve ser utilizado para  consultar um agendamento específico 
             utilizando o identificador do agendamento como filtro.
@@ -26,14 +26,14 @@
             </summary>
             <param name="value">Dados do agendamento</param>
         </member>
-        <member name="M:API.Controller.AgendamentoController.Put(System.Int32,Application.ViewModel.Request.RequestAgendamentoViewModel)">
+        <member name="M:API.Controller.AgendamentoController.Put(System.Int64,Application.ViewModel.Request.RequestAgendamentoViewModel)">
             <summary>
             Alterar agendamento: Este endpoint deve ser utilizado para altear um agendamento.
             </summary>
             <param name="id">Identificador do agendamento</param>
             <param name="value">Dados do agendamento</param>
         </member>
-        <member name="M:API.Controller.AgendamentoController.Delete(System.Int32)">
+        <member name="M:API.Controller.AgendamentoController.Delete(System.Int64)">
             <summary>
             Cancelar agendamento: Este endpoint deve ser utilizado para cancelar um agendamento.
             </summary>

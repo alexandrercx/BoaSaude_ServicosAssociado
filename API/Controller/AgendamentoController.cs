@@ -40,7 +40,7 @@ namespace API.Controller
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(List<ResponseAgendamentoViewModel>))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(string))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(string))]
-        public List<ResponseAgendamentoViewModel> List([Required][FromQuery] int idAssociado)
+        public List<ResponseAgendamentoViewModel> List([Required][FromQuery] long idAssociado)
         {
             return _AgendamentoAppService.List(idAssociado).Result;
         }
@@ -56,7 +56,7 @@ namespace API.Controller
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ResponseAgendamentoViewModel))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(string))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(string))]
-        public ResponseAgendamentoViewModel Get([Required][FromRoute] int id)
+        public ResponseAgendamentoViewModel Get([Required][FromRoute] long id)
         {
             return _AgendamentoAppService.Get(id).Result;
         }
@@ -89,7 +89,7 @@ namespace API.Controller
                 {
                     var response = _AgendamentoAppService.Add(value).Result;
 
-                    if ((response?.SeqlAgendamento ?? 0) > 0)
+                    if ((response?.Id ?? 0) > 0)
                         result = StatusCode((int)HttpStatusCode.OK, response);
                     else
                         result = StatusCode((int)HttpStatusCode.BadRequest, "Erro na inclusão do agendamento.");
@@ -127,7 +127,7 @@ namespace API.Controller
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(string))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(string))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(string))]
-        public void Put([Required][FromRoute] int id, [Required][FromBody] RequestAgendamentoViewModel value)
+        public void Put([Required][FromRoute] long id, [Required][FromBody] RequestAgendamentoViewModel value)
         {
             throw new NotImplementedException();
         }
@@ -141,7 +141,7 @@ namespace API.Controller
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(string))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(string))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(string))]
-        public void Delete([Required][FromRoute] int id)
+        public void Delete([Required][FromRoute] long id)
         {
             throw new NotImplementedException();
         }
