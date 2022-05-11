@@ -7,6 +7,11 @@ namespace Application.ViewModel.Response
 {
     public class ResponseAgendamentoViewModel
     {
+        public ResponseAgendamentoViewModel()
+        {
+            Relatorio = new ResponseRelatorioViewModel();
+        }
+
         public long Id { get; set; }
         public ResponseTipoAtendimentoViewModel TipoAtendimento { get; set; }
         public ResponseAssociadoViewModel Associado { get; set; }
@@ -14,5 +19,6 @@ namespace Application.ViewModel.Response
         public ResponseEnderecoViewModel Endereco { get; set; }
         public DateTime DataAtendimento { get; set; }
         public DateTime? DataAgendamento { get; set; }
+        public ResponseRelatorioViewModel Relatorio { get; set; }
     }
 }

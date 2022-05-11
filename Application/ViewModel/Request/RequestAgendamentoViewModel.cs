@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Interface;
+using Domain.Entities;
 using Domain.Enum;
 using Newtonsoft.Json;
 using System;
@@ -61,23 +62,28 @@ namespace Application.ViewModel.Request
             if (!new RequiredAttribute().IsValid(AssociadoId))
                 retorno.Add(new ValidationResult("Atributo obrigatório.", new List<string> { nameof(AssociadoId) }));
             else if(AssociadoId<=0)
-                retorno.Add(new ValidationResult("Atributo inválido. (Seql_Associado > 0).", new List<string> { nameof(AssociadoId) }));
+                retorno.Add(new ValidationResult("Atributo inválido. (AssociadoId > 0).", new List<string> { nameof(AssociadoId) }));
+            //else if (!_AgendamentoAppService.AssociadoAtivo(AssociadoId).Result)
+            //    retorno.Add(new ValidationResult("Associado não está ativo.", new List<string> { nameof(AssociadoId) }));
 
             if (!new RequiredAttribute().IsValid(ConveniadoId))
                 retorno.Add(new ValidationResult("Atributo obrigatório.", new List<string> { nameof(ConveniadoId) }));
             else if (ConveniadoId <= 0)
-                retorno.Add(new ValidationResult("Atributo inválido. (Seql_Conveniado > 0).", new List<string> { nameof(ConveniadoId) }));
+                retorno.Add(new ValidationResult("Atributo inválido. (ConveniadoId > 0).", new List<string> { nameof(ConveniadoId) }));
+            //else if (!_AgendamentoAppService.ConveniadoLivre(ConveniadoId, DataAtendimento).Result)
+            //    retorno.Add(new ValidationResult("Conveniado já possui não está disponível nessa data/hora.", new List<string> { nameof(AssociadoId) }));
 
             if (!new RequiredAttribute().IsValid(EnderecoId))
                 retorno.Add(new ValidationResult("Atributo obrigatório.", new List<string> { nameof(EnderecoId) }));
             else if (EnderecoId <= 0)
-                retorno.Add(new ValidationResult("Atributo inválido. (Seql_Endereco > 0).", new List<string> { nameof(EnderecoId) }));
+                retorno.Add(new ValidationResult("Atributo inválido. (EnderecoId > 0).", new List<string> { nameof(EnderecoId) }));
 
             if (!new RequiredAttribute().IsValid(DataAtendimento))
                 retorno.Add(new ValidationResult("Atributo obrigatório.", new List<string> { nameof(DataAtendimento) }));
             else if (DateTime.Now.AddMinutes(30) >= DataAtendimento)
-                retorno.Add(new ValidationResult("Atributo inválido. (Inst_Atendimento > DataHoraAtual + 30 minutos).", new List<string> { nameof(DataAtendimento) }));
+                retorno.Add(new ValidationResult("Atributo inválido. (DataAtendimento > DataHoraAtual + 30 minutos).", new List<string> { nameof(DataAtendimento) }));
 
+             
 
             return retorno;
         }

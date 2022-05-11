@@ -25,16 +25,52 @@ namespace Application.Services
         public async Task<ResponseAgendamentoViewModel> Add(RequestAgendamentoViewModel agendamento)
         {
             var request = _Mapper.Map<Agendamento>(agendamento);
-            ResponseAgendamentoViewModel response = null;
+            ResponseAgendamentoViewModel response = new ResponseAgendamentoViewModel();
 
-            await _Agendamento.Add(request);
-
-            if (request.Id > 0)
+            if (!await _Agendamento.AssociadoAtivo(agendamento.AssociadoId))
             {
-                response = await Get(request.Id);
+                response.Relatorio.CodigoHttp = 207;
+                response.Relatorio.Status = "invalido";
+                response.Relatorio.Detalhes.Add(new ResponseDetalheRelatorioViewModel()
+                {
+                    Atributo = nameof(agendamento.AssociadoId),
+                    Mensagem = "Associado não está ativo."
+                });
+            }
+
+            if (!await _Agendamento.ConveniadoLivre(agendamento.ConveniadoId, agendamento.DataAtendimento))
+            {
+                response.Relatorio.CodigoHttp = 207;
+                response.Relatorio.Status = "invalido";
+                response.Relatorio.Detalhes.Add(new ResponseDetalheRelatorioViewModel()
+                {
+                    Atributo = nameof(agendamento.ConveniadoId),
+                    Mensagem = "Conveniado não está disponível nessa data/hora."
+                });
+            }
+
+            if (response.Relatorio.Status == null)
+            {
+                await _Agendamento.Add(request);
+
+                if (request.Id > 0)
+                {
+                    response.Relatorio.CodigoHttp = 200;
+                    response = await Get(request.Id);
+                }
             }
 
             return response;
+        }
+
+        public async Task<bool> AssociadoAtivo(long id)
+        {
+            return await _Agendamento.AssociadoAtivo(id);
+        }
+
+        public async Task<bool> ConveniadoLivre(long id, DateTime dataAtendimento)
+        {
+            return await _Agendamento.ConveniadoLivre(id, dataAtendimento);
         }
 
         public async Task<ResponseAgendamentoViewModel> Get(long id)

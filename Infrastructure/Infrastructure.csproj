@@ -22,8 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BoaSaude.Tcc.Application" Version="1.0.0" />
-    <PackageReference Include="BoaSaude.Tcc.Domain" Version="1.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.14" />
   </ItemGroup>

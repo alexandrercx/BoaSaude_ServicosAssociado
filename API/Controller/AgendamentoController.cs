@@ -68,6 +68,7 @@ namespace API.Controller
         /// <param name="value">Dados do agendamento</param>
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ResponseAgendamentoViewModel))]
+        [ProducesResponseType(207, Type = typeof(ResponseAgendamentoViewModel))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(string))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(string))]
         public IActionResult Post([Required][FromBody] RequestAgendamentoViewModel value)
@@ -90,12 +91,15 @@ namespace API.Controller
                     var response = _AgendamentoAppService.Add(value).Result;
 
                     if ((response?.Id ?? 0) > 0)
-                        result = StatusCode((int)HttpStatusCode.OK, response);
+                    {
+                        response.Relatorio.CodigoHttp = (int)HttpStatusCode.OK;
+                        result = StatusCode(response.Relatorio.CodigoHttp, response);
+                    }
                     else
-                        result = StatusCode((int)HttpStatusCode.BadRequest, "Erro na inclusão do agendamento.");
+                        result = StatusCode(response.Relatorio.CodigoHttp, response);
                 }
                 else
-                    result = StatusCode((int)HttpStatusCode.BadRequest, validations);
+                    result = StatusCode(207, validations);
             }
             catch (UnauthorizedAccessException ex)
             {

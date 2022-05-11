@@ -31,7 +31,7 @@ namespace Infrastructure.Repository
                 .Include(a => a.Endereco)
                 .Include(a => a.Associado)
                 .Include(a => a.Conveniado)
-                .Include(a=>a.TipoAtendimento)
+                .Include(a => a.TipoAtendimento)
                 .Where(p => p.Id == Id)
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
@@ -47,6 +47,28 @@ namespace Infrastructure.Repository
                 .Where(expression)
                 .AsNoTracking()
                 .ToListAsync();
+        }
+
+        public async Task<bool> ConveniadoLivre(long id, DateTime dataAtendimento)
+        {
+            var agendamento = await _Context.Agendamento
+                .Where(p => p.ConveniadoId == id && p.DataAtendimento == dataAtendimento)
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            
+
+            return agendamento == null || agendamento.Id == 0;
+        }
+
+        public async Task<bool> AssociadoAtivo(long id)
+        {
+            var associado = await _Context.Associado
+                .Where(a => a.Id == id)
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            return associado != null && associado.Ativo == "S";
         }
     }
 }
